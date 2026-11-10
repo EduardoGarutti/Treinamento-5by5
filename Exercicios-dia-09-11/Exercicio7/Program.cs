@@ -1,6 +1,5 @@
 ﻿//7- Faça um programa que receba o peso em kgs e a altura em cm de uma pessoa e calcule o IMC. Com base no resultado, exiba a faixa correspondente
 
-using System.ComponentModel.Design;
 
 Console.WriteLine("Informe seu peso em KG: ");
 float peso = float.Parse(Console.ReadLine());
@@ -20,6 +19,13 @@ if(imc < 18.5){
 } else if (imc < 30)
 {
     Console.WriteLine("Sobrepeso");
-} else {
-    Console.WriteLine("obesidade");
+} else if (imc < 35){
+    Console.WriteLine("obesidade I");
+} else if (imc < 40)
+{
+    Console.WriteLine("Obesidade II");
+} else
+{
+    Console.WriteLine("Obesidade III");
 }
+
