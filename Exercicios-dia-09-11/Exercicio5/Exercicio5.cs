@@ -3,10 +3,10 @@
 Console.WriteLine("Informe um ano no formato YYYY");
 int ano = int.Parse(Console.ReadLine());
 
-if(ano % 4 == 0 && !(ano % 100 == 0))
+if (ano % 400 == 0)
 {
     Console.WriteLine("É um ano bissexto!");
-} else if(ano % 400 == 0)
+} else if (ano % 4 == 0 && !(ano % 100 == 0))
 {
     Console.WriteLine("É um ano bissexto!");
 } else
