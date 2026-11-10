@@ -2,7 +2,8 @@
 
 2- Faça um programa que leia um numero inteiro. Esse numero é a posição na qual a sequencia fibonacci será exibida.
 
-3- Faça um programa que leia um numero inteiro e mostre primeiramente apenas os valores impares e depois os valores pares
+3- Faça um programa que leia um numero inteiro e mostre primeiramente apenas os valores impares (na ordem crescente)
+e depois os valores pares (na ordem decrescente)
 
 4- Faça um programa que leia um numero inteiro e mostre todos os numeros primos até ele (inclusive ele, se for primo)
 
