@@ -3,5 +3,6 @@
   <Project Path="Exercicio2 - Sequencia de fibonacci/Exercicio2 - Sequencia de fibonacci.csproj" Id="b91120fc-15b6-4150-88d1-90ec0218e97d" />
   <Project Path="Exercicio3 - Par e impar/Exercicio3 - Par e impar.csproj" Id="2fc00747-eaa0-4678-b115-fce356d3cf80" />
   <Project Path="Exercicio4 - numeros primos/Exercicio4 - numeros primos.csproj" Id="184f2a3b-6ec9-4dff-82bc-82ed5a4d654d" />
+  <Project Path="Exercicio5 - Calculo fatorial/Exercicio5 - Calculo fatorial.csproj" Id="a678ecb6-6f7f-4cb3-a5b8-19a91822b8ad" />
   <Project Path="LacosRepeticao/LacosRepeticao.csproj" />
 </Solution>
