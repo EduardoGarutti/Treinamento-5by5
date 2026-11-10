@@ -31,8 +31,7 @@ if ((lado1 + lado3) < lado2)
 if (lado1 == lado2 && lado1 == lado3)
 {
     Console.WriteLine("É um triangulo equilatero");
-} else if ((lado1 == lado2 && lado1 != lado3) || 
-    (lado2 == lado3 && lado2 != lado1))
+} else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3)
 {
     Console.WriteLine("Triangulo Isoceles");
 } else
