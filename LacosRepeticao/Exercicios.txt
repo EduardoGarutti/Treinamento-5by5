@@ -1,0 +1,9 @@
+1- Faça um programa que leia um numero inteiro e mostre a tabuada de 1 a 10
+
+2- Faça um programa que leia um numero inteiro. Esse numero é a posição na qual a sequencia fibonacci será exibida.
+
+3- Faça um programa que leia um numero inteiro e mostre primeiramente apenas os valores impares e depois os valores pares
+
+4- Faça um programa que leia um numero inteiro e mostre todos os numeros primos até ele (inclusive ele, se for primo)
+
+5- Faça um programa que leia um numero inteiro e Exiba o seu calculo fatorial.
