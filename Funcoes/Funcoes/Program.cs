@@ -2,5 +2,7 @@
 {
     Console.WriteLine("Hello, {0}!", nome);
 }
-
-Hello("Eduardo");
+string nome;
+Console.WriteLine("Informe seu nome: ");
+nome = Console.ReadLine();
+Hello(nome);
