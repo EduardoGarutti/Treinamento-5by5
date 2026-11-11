@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="Exercicio1/Exercicio1.csproj" />
+  <Project Path="Exercicio2/Exercicio2.csproj" Id="41e2063e-a891-4ef4-a755-4999662e8ece" />
+  <Project Path="Exercicio3 - Sequencia de fibonacci/Exercicio3 - Sequencia de fibonacci.csproj" Id="2c2c8c83-4758-478d-8930-7dcf5a11a3eb" />
+  <Project Path="Exercicio4 - ASCII/Exercicio4 - ASCII.csproj" Id="0d777818-f50d-452d-95ea-72edbc0ab877" />
   <Project Path="Vetor/Vetor.csproj" />
 </Solution>
