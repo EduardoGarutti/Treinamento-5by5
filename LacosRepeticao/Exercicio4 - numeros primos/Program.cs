@@ -14,6 +14,7 @@ for (int i = 2; i <= nmr; i++)
         if (i % j == 0)
         {
             verificador = false;
+            break;
         }
     }
 
