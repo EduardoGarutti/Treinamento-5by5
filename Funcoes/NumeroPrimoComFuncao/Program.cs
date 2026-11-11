@@ -1,33 +1,22 @@
-﻿bool isPrimo(int nmr)
-{
-    if (nmr <= 1)
-    {
-        return false;
-    }
-    int contador = 0;
+﻿Console.WriteLine("Informe um numero: ");
+int nmr = int.Parse(Console.ReadLine());
 
-    for(int i = 1; i <= nmr; i++)
+for(int i = 2; i<=nmr; i++)
+{
+    if (isPrimo(i))
     {
-        if(nmr % i == 0)
-        {
-            contador++;
-        }
-    }
-    if(contador > 2)
-    {
-        return false;
-    } else
-    {
-        return true;
+        Console.Write(i + " ");
     }
 }
 
-Console.WriteLine("Informe o numero desejado: ");
+bool isPrimo(int nmr){
 
-if (isPrimo(int.Parse(Console.ReadLine())))
-{
-    Console.WriteLine("O numero informado é primo");
-} else
-{
-    Console.WriteLine("O numero informado não é primo");
+    for(int i = 2;i<nmr; i++)
+    {
+        if(nmr % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
 }
