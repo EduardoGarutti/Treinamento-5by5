@@ -1,1 +1,6 @@
-﻿Console.WriteLine("Hello, World!");
+﻿void Hello()
+{
+    Console.WriteLine("Hello, World!");
+}
+
+Hello();
