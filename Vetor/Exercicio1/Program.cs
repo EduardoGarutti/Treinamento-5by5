@@ -4,7 +4,7 @@
 Console.WriteLine("Quantos characteres deseja inserir? (limite de 6)");
 int qnt = int.Parse(Console.ReadLine());
 
-while(qnt > 6 || qnt <= 0)
+while(entradaNaoValida(qnt))
 {
     Console.WriteLine("Quantidade invalida! " +
         "Insira um numero inteiro entre 1 a 6");
@@ -12,21 +12,47 @@ while(qnt > 6 || qnt <= 0)
 }
 
 char[] input = new char[qnt];
-
-for(int i=0; i < qnt; i++)
-{
-    Console.WriteLine($"Informe o Char na posição {i}");
-    input[i] = char.Parse(Console.ReadLine());
-}
+input = preencherVetor(input,qnt);
 
 Console.WriteLine("\nDa primeira a ultima posição: ");
-for(int i = 0; i < qnt; i++)
-{
-    Console.Write($"{input[i]} ");
-}
+imprimirVetor(input, false);
 
 Console.WriteLine("\nDa ultima para a primeira posição: ");
-for(int i = qnt-1; i >= 0; i--)
+imprimirVetor(input, true);
+
+//------------------------------------------------------------------
+bool entradaNaoValida(int qnt)
 {
-    Console.Write($"{input[i]} ");
+    if ( qnt > 6 || qnt <= 0)
+    {
+        return true;
+    }
+    return false;
 }
+
+char[] preencherVetor(char[] vetor, int tamanho)
+{
+    for (int i = 0; i < tamanho; i++)
+    {
+        Console.WriteLine($"Informe o Char na posição {i}");
+        vetor[i] = char.Parse(Console.ReadLine());
+    }
+    return vetor;
+}
+void imprimirVetor(char[] vetor, bool invertido) 
+{
+    if(invertido)
+    {
+        for (int i = vetor.Length - 1; i >= 0; i--)
+        {
+            Console.Write($"{input[i]} ");
+        }
+    } else
+    {
+        for (int i = 0; i < vetor.Length; i++)
+        {
+            Console.Write($"{input[i]} ");
+        }
+    }
+}
+
