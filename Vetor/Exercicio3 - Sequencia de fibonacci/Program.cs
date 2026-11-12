@@ -5,8 +5,7 @@
 Console.WriteLine("Informe um numero: ");
 int nmr = int.Parse(Console.ReadLine());
 
-int[] vetor = new int[nmr];
-vetor = fibonacci(nmr);
+int[] vetor = fibonacci(nmr);
 
 imprimirVetor(vetor);
 
