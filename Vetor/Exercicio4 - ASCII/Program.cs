@@ -1,24 +1,24 @@
-﻿//4 - Faça um programa que cria um vetor de string de 10 posições.
-//Então, faça um novo vetor que armazena a strng e o valor ASCII dele logo em sequencia 
+﻿//4 - Faça um programa que cria um vetor de char de 10 posições.
+//Então, faça um novo vetor de string com o dobro de posições que armazena o char e o valor ASCII dele logo em sequencia 
 //(exemplo: "Casa"->C21A34S55A11)
 
-string[] input = preencherVetor();
+char[] input = preencherVetor();
 string[] resultado = criarVetorAscii(input);
 Console.WriteLine("Resultado do novo vetor: ");
 imprimirVetor(resultado);
 
-string[] preencherVetor()
+char[] preencherVetor()
 {
-    string[] novoVetor = new string[10];
+    char[] novoVetor = new char[10];
     Console.WriteLine("Informe 10 characteres");
     for (int i=0;i<novoVetor.Length; i++)
     {
-        novoVetor[i] = Console.ReadLine();
+        novoVetor[i] = char.Parse(Console.ReadLine());
     } 
     return novoVetor;
 }
 
-string[] criarVetorAscii(string[] input)
+string[] criarVetorAscii(char[] input)
 {
     string[] novoVetor = new string[input.Length * 2];
     int aux = 0;
@@ -27,11 +27,11 @@ string[] criarVetorAscii(string[] input)
     {
         if(i % 2 == 0)
         {
-            novoVetor[i] = input[aux];
+            novoVetor[i] = input[aux].ToString();
         }
         else
         {
-            novoVetor[i] = ((int)Convert.ToChar(input[aux])).ToString();
+            novoVetor[i] = ((int)input[aux]).ToString();
             aux++;
         }
     }

@@ -10,6 +10,6 @@ Mostre todos os vetores.
 Usando esse numero, crie um vetor com essa quantidade de posições. 
 Dentro deste vetor, deve conter os itens da sequencia fibonacci até a posição informada 
 
-4- Faça um programa que cria um vetor de character de 10 posições.
-Então, faça um novo vetor que armazena o character e o valor ASCII dele logo em sequencia 
-(exemplo: "Casa" -> C21A34S55A11)
+4 - Faça um programa que cria um vetor de char de 10 posições.
+Então, faça um novo vetor de string com o dobro de posições que armazena o char e o valor ASCII dele logo em sequencia 
+(exemplo: "Casa"->C21A34S55A11)
