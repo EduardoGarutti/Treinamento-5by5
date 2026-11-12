@@ -7,35 +7,38 @@ const int coluna = 4;
 
 int[,] matriz = new int[linha, coluna];
 PreencherMatriz(matriz);
-int [,] matrizInvertida = GerarNovaMatrizInvertida(matriz);
+int[,] matriztransposta = GerarNovaMatrizTransposta(matriz);
 int[,] matrizEspelhada = GerarNovaMatrizEspelhada(matriz);
-Console.WriteLine("\n------------------------------------------\nMatriz normal: ");
-ExibirMatriz(matriz);
-Console.WriteLine("\n------------------------------------------\nMatriz invertida:");
-ExibirMatriz(matrizInvertida);
-Console.WriteLine("\n------------------------------------------\nMatriz Espelhada:");
-ExibirMatriz(matrizEspelhada);
+Console.WriteLine("\n------------------------------------------\n" +
+    "Matriz normal: ");
+ExibirMatriz(matriz, linha,coluna);
+Console.WriteLine("\n------------------------------------------\n" +
+    "Matriz Transposta:");
+ExibirMatriz(matriztransposta, coluna,linha);
+Console.WriteLine("\n------------------------------------------\n" +
+    "Matriz Espelhada:");
+ExibirMatriz(matrizEspelhada, linha,coluna);
 
 
 void PreencherMatriz(int[,] matriz)
 {
-    for(int i = 0; i < linha; i++)
+    for (int i = 0; i < linha; i++)
     {
-        for(int j = 0; j< coluna; j++)
+        for (int j = 0; j < coluna; j++)
         {
-            matriz[i, j] = RandomNumberGenerator.GetInt32(1,10);
+            matriz[i, j] = RandomNumberGenerator.GetInt32(1, 10);
         }
     }
 }
 
-int[,] GerarNovaMatrizInvertida(int[,] matriz)
+int[,] GerarNovaMatrizTransposta(int[,] matriz)
 {
     int[,] novaMatriz = new int[coluna, linha];
-    for (int i = 0; i < coluna; i++)
+    for (int i = 0; i < linha; i++)
     {
-        for (int j = 0; j < linha; j++)
+        for (int j = 0; j < coluna; j++)
         {
-            novaMatriz[i, j] = matriz[j, i];
+            novaMatriz[j, i] = matriz[i, j];
 
         }
     }
@@ -44,8 +47,8 @@ int[,] GerarNovaMatrizInvertida(int[,] matriz)
 int[,] GerarNovaMatrizEspelhada(int[,] matriz)
 {
     int[,] novaMatriz = new int[linha, coluna];
-    int auxLinha = linha-1;
-    int auxColuna = coluna-1;
+    int auxLinha = linha - 1;
+    int auxColuna = coluna - 1;
 
     for (int i = 0; i < linha; i++)
     {
@@ -54,20 +57,23 @@ int[,] GerarNovaMatrizEspelhada(int[,] matriz)
             novaMatriz[i, j] = matriz[auxLinha, auxColuna];
             auxColuna--;
         }
-        auxColuna = coluna-1;
+        auxColuna = coluna - 1;
         auxLinha--;
 
     }
     return novaMatriz;
 }
-void ExibirMatriz(int[,] matriz)
+void ExibirMatriz(int[,] matriz, int linha, int coluna)
 {
-    for (int i = 0; i < matriz.GetLength(0); i++)
+
+    for (int i = 0; i < linha; i++)
     {
-        for (int j = 0; j < matriz.GetLength(1); j++)
+        for (int j = 0; j < coluna; j++)
         {
-            Console.Write($"[{i}][{j}] = {matriz[i, j]} ");
+            Console.Write($"[{matriz[i, j]}] ");
         }
         Console.WriteLine();
     }
+
+
 }
