@@ -1,47 +1,47 @@
-﻿//4 - Faça um programa que cria um vetor de character de 10 posições.
-//Então, faça um novo vetor que armazena o character e o valor ASCII dele logo em sequencia 
+﻿//4 - Faça um programa que cria um vetor de string de 10 posições.
+//Então, faça um novo vetor que armazena a strng e o valor ASCII dele logo em sequencia 
 //(exemplo: "Casa"->C21A34S55A11)
 
-char[] input = preencherVetor();
-char[] resultado = criarVetorAscii(input);
+string[] input = preencherVetor();
+string[] resultado = criarVetorAscii(input);
 Console.WriteLine("Resultado do novo vetor: ");
 imprimirVetor(resultado);
 
-char[] preencherVetor()
+string[] preencherVetor()
 {
-    char[] novoVetor = new char[10];
+    string[] novoVetor = new string[10];
     Console.WriteLine("Informe 10 characteres");
     for (int i=0;i<novoVetor.Length; i++)
     {
-        novoVetor[i] = char.Parse(Console.ReadLine());
+        novoVetor[i] = Console.ReadLine();
     } 
     return novoVetor;
 }
 
-char[] criarVetorAscii(char[] input)
+string[] criarVetorAscii(string[] input)
 {
-    string stringAuxiliar = "";
+    string[] novoVetor = new string[input.Length * 2];
+    int aux = 0;
 
-    for (int i = 0; i < input.Length; i++)
+    for (int i = 0; i < novoVetor.Length; i++)
     {
-        stringAuxiliar += input[i];
-        stringAuxiliar += ((int)input[i]).ToString();
+        if(i % 2 == 0)
+        {
+            novoVetor[i] = input[aux];
+        }
+        else
+        {
+            novoVetor[i] = ((int)Convert.ToChar(input[aux])).ToString();
+            aux++;
+        }
     }
-
-    char[] novoVetor = new char[stringAuxiliar.Length];
-
-    for(int i=0; i<novoVetor.Length; i++)
-    {
-        novoVetor[i] = stringAuxiliar[i];
-    }
-
     return novoVetor;
 }
 
-void imprimirVetor(char[] input)
+void imprimirVetor(string[] input)
 {
     for (int i = 0; i < input.Length; i++)
     {
-        Console.Write(input[i]);
+        Console.Write(input[i]+ " ");
     }
 }
