@@ -11,13 +11,13 @@ int[,] matriztransposta = GerarNovaMatrizTransposta(matriz);
 int[,] matrizEspelhada = GerarNovaMatrizEspelhada(matriz);
 Console.WriteLine("\n------------------------------------------\n" +
     "Matriz normal: ");
-ExibirMatriz(matriz, linha,coluna);
+ExibirMatriz(matriz, linha, coluna);
 Console.WriteLine("\n------------------------------------------\n" +
     "Matriz Transposta:");
-ExibirMatriz(matriztransposta, coluna,linha);
+ExibirMatriz(matriztransposta, coluna, linha);
 Console.WriteLine("\n------------------------------------------\n" +
     "Matriz Espelhada:");
-ExibirMatriz(matrizEspelhada, linha,coluna);
+ExibirMatriz(matrizEspelhada, linha, coluna);
 
 
 void PreencherMatriz(int[,] matriz)

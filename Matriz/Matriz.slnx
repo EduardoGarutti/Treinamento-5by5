@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="Exercicio1/Exercicio1.csproj" />
   <Project Path="Exercicio2/Exercicio2.csproj" />
+  <Project Path="Exercicio3/Exercicio3.csproj" Id="80136f4a-a65e-4571-889a-6f0209ec7879" />
+  <Project Path="Exercicio4/Exercicio4.csproj" Id="211e9589-efab-4dcf-af95-c611a6d5ce4e" />
   <Project Path="Matriz/Matriz.csproj" />
 </Solution>
