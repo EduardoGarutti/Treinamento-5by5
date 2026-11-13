@@ -68,14 +68,21 @@ string GerarSituacao(float media)
 
 void ImprimirBoletim(string[,] boletim, int linhas)
 {
-    Console.WriteLine("  Matérias    Nota 1\tNota 2\tNota 3\tNota 4\tMédia\tSituação");
-    for(int i = 0; i < linhas; i++)
+    Console.WriteLine("Matéria".PadRight(15) + 
+        "1º Bi".PadRight(15) + 
+        "2º Bi".PadRight(15) + 
+        "3º Bi".PadRight(15) + 
+        "4º Bi".PadRight(15) + 
+        "Média".PadRight(15) + 
+        "Situação".PadRight(15)
+    );
+    for (int i = 0; i < linhas; i++)
     {
-        Console.Write("\t");
         for(int j=0; j<7; j++)
         {
-            Console.Write(boletim[i,j]+ "\t");
+            Console.Write(boletim[i,j].PadRight(15));
         }
         Console.WriteLine();
     }
 }
+
