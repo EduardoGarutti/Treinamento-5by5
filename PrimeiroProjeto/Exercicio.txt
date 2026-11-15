@@ -1,1 +1,1 @@
-Exercicio Dificil -> 
+Jogo "Batalha naval" feito em c#.
