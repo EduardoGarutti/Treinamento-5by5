@@ -7,34 +7,39 @@ float valorVenda;
 
 Carro[] carro = new Carro[4];
 
-CriarCarros(carro);
+PreencherVetor(carro);
 ImprimirCarros(carro);
-void CriarCarros(Carro[] c)
+void PreencherVetor(Carro[] c)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < c.Length; i++)
     {
-        Console.WriteLine($"Informe o Fabricante do carro {i}: ");
-        fabricante = Console.ReadLine();
-
-        Console.WriteLine($"Informe o Modelo do carro {i}: ");
-        modelo = Console.ReadLine();
-
-        Console.WriteLine($"Informe o Ano do Fabricante do carro {i}: ");
-        anoFabricante = int.Parse(Console.ReadLine());
-
-        Console.WriteLine($"Informe o Ano do Modelo do carro {i}: ");
-        anoModelo = int.Parse(Console.ReadLine());
-
-        Console.WriteLine($"Informe o Valor de venda do carro {i}: ");
-        valorVenda = float.Parse(Console.ReadLine());
-
-        c[i] = new Carro(fabricante, modelo, anoFabricante, anoModelo, valorVenda);
+        c[i] = CriarCarro(i);
     }
 }
+Carro CriarCarro(int i)
+{
+    Console.WriteLine($"Informe o Fabricante do carro {i+1}: ");
+    fabricante = Console.ReadLine();
 
+    Console.WriteLine($"Informe o Modelo do carro {i+1}: ");
+    modelo = Console.ReadLine();
+
+    Console.WriteLine($"Informe o Ano do Fabricante do carro {i+1}: ");
+    anoFabricante = int.Parse(Console.ReadLine());
+
+    Console.WriteLine($"Informe o Ano do Modelo do carro {i+1}: ");
+    anoModelo = int.Parse(Console.ReadLine());
+
+    Console.WriteLine($"Informe o Valor de venda do carro {i+1}: ");
+    valorVenda = float.Parse(Console.ReadLine());
+
+    Carro c = new Carro(fabricante, modelo, anoFabricante, anoModelo, valorVenda);
+
+    return c;
+}
 void ImprimirCarros(Carro[] c)
 {
-    for(int i = 0;i < 4; i++)
+    for(int i = 0;i < c.Length; i++)
     {
         Console.WriteLine(c[i]);
         Console.WriteLine();
