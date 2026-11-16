@@ -1,12 +1,7 @@
 ﻿//1 - Faça um programa que crie 4 objetos do tipo "Carro", contendo:
 // "Fabricante", "Modelo, "Ano de fabriação","Ano de modelo" e "valor de venda"
 //Grave esses carros em um Vetor e faça a exibição do mesmo
-string fabricante, modelo;
-int anoModelo, anoFabricante;
-float valorVenda;
-
 Carro[] carro = new Carro[4];
-
 PreencherVetor(carro);
 ImprimirCarros(carro);
 void PreencherVetor(Carro[] c)
@@ -18,6 +13,10 @@ void PreencherVetor(Carro[] c)
 }
 Carro CriarCarro(int i)
 {
+    string fabricante, modelo;
+    int anoModelo, anoFabricante;
+    float valorVenda;
+
     Console.WriteLine($"Informe o Fabricante do carro {i+1}: ");
     fabricante = Console.ReadLine();
 

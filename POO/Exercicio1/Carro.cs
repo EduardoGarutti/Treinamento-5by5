@@ -9,7 +9,7 @@
         this.Fabricante = Fabricante;
         this.Modelo = Modelo;
         this.AnoFabricacao = AnoFabricacao;
-        this.AnoModelo  = AnoModelo;
+        this.AnoModelo = AnoModelo;
         this.ValorVenda = ValorVenda;
     }
 
@@ -35,7 +35,7 @@
 
     public void setAnoFabricacao(int AnoFabricacao)
     {
-        this.AnoFabricacao= AnoFabricacao;
+        this.AnoFabricacao = AnoFabricacao;
     }
 
     public int getAnoFabricacao()
@@ -45,7 +45,18 @@
 
     public void setAnoModelo(int AnoModelo)
     {
-        this.AnoFabricacao = AnoModelo;
+        if (ValidarAnoModelo(AnoModelo))
+            this.AnoFabricacao = AnoModelo;
+        else
+            this.AnoModelo = AnoFabricacao;
+    }
+
+    private bool ValidarAnoModelo(int ano)
+    {
+        if (ano == AnoFabricacao || ano == AnoFabricacao + 1)
+            return true;
+        else
+            return false;
     }
 
     public int getAnoModelo()
@@ -55,9 +66,9 @@
 
     public void setValorVenda(float ValorVenda)
     {
-        this.ValorVenda= ValorVenda;
+        this.ValorVenda = ValorVenda;
     }
-    
+
     public float getValorVenda()
     {
         return this.ValorVenda;
