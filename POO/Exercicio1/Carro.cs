@@ -13,6 +13,56 @@
         this.ValorVenda = ValorVenda;
     }
 
+    public void setFabricante(string Fabricante)
+    {
+        this.Fabricante = Fabricante;
+    }
+
+    public string getFabricante()
+    {
+        return this.Fabricante;
+    }
+
+    public void setModelo(string Modelo)
+    {
+        this.Modelo = Modelo;
+    }
+
+    public string getModelo()
+    {
+        return this.Modelo;
+    }
+
+    public void setAnoFabricacao(int AnoFabricacao)
+    {
+        this.AnoFabricacao= AnoFabricacao;
+    }
+
+    public int getAnoFabricacao()
+    {
+        return this.AnoFabricacao;
+    }
+
+    public void setAnoModelo(int AnoModelo)
+    {
+        this.AnoFabricacao = AnoModelo;
+    }
+
+    public int getAnoModelo()
+    {
+        return this.AnoModelo;
+    }
+
+    public void setValorVenda(float ValorVenda)
+    {
+        this.ValorVenda= ValorVenda;
+    }
+    
+    public float getValorVenda()
+    {
+        return this.ValorVenda;
+    }
+
     public override string ToString()
     {
         return "Fabricante: " + Fabricante + "\nModelo: " + Modelo + "\nAno Fabricação: " + AnoFabricacao +
