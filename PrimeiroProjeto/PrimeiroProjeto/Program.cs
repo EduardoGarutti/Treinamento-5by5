@@ -89,121 +89,35 @@ void Jogar()
     }
     Console.ResetColor();
 }
-void AtaqueInimigo(int[,] matriz, string[,] matrizFake)
+void InicializarCampoReal(int[,] matriz)
 {
-    int linha = Random.Shared.Next(0, 8);
-    int coluna = Random.Shared.Next(0, 8);
-    while (PosicaoJaFoiAtacada(matriz, linha, coluna))
+    for (int i = 0; i < LINHAS; i++)
     {
-        linha = Random.Shared.Next(0, 8);
-        coluna = Random.Shared.Next(0, 8);
-    }
-
-    if (Acertou(matriz, linha, coluna))
-    {
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("O inimigo te acertou!");
-        Console.ResetColor();
-        MostraHit(matriz, matrizFake, linha, coluna, false);
-    }
-    else
-    {
-        Console.WriteLine("O inimigo não te acertou!");
-        MostraHit(matriz, matrizFake, linha, coluna, false);
-    }
-}
-int InformarAtaqueLinha(int linha)
-{
-    Console.WriteLine("Informe linha que deseja atacar(0-7): ");
-    linha = int.Parse(Console.ReadLine()!);
-
-    while (linha > 7 || linha < 0)
-    {
-        Console.WriteLine("Valor da linha está invalido! Informe novamente (0-7): ");
-        linha = int.Parse(Console.ReadLine()!);
-    }
-    return linha;
-}
-int InformarAtaqueColuna(int coluna)
-{
-    Console.WriteLine("Informe coluna que deseja atacar(0-7): ");
-    coluna = int.Parse(Console.ReadLine()!);
-
-    while (coluna > 7 || coluna < 0)
-    {
-        Console.WriteLine("Valor da coluna está invalido! Informe novamente (0-7): ");
-        coluna = int.Parse(Console.ReadLine()!);
-    }
-    return coluna;
-}
-bool PosicaoJaFoiAtacada(int[,] matriz, int linha, int coluna)
-{
-    if (matriz[linha, coluna] == 2)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-void GerarNaviosAleatoriamente(int[,] matriz)
-{
-    for (int i = 1; i <= 4; i++)
-    {
-        int linha = Random.Shared.Next(0, 8);
-        int coluna = Random.Shared.Next(0, 8);
-        int decisao = Random.Shared.Next(0, 2);
-
-        switch (decisao)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            case 0:
-                while (PercorreLinha(matriz, linha, i))
-                {
-                    linha = Random.Shared.Next(0, 8);
-                }
-                break;
-            case 1:
-                while (PercorreColuna(matriz, coluna, i))
-                {
-                    coluna = Random.Shared.Next(0, 8);
-                }
-                break;
+            matriz[i, j] = 0;
         }
     }
 }
-bool PercorreLinha(int[,] matriz, int linha, int aux)
+void InicializarCampoFakeInimigo(string[,] matriz)
 {
-    int posicao = Random.Shared.Next(0, 8 - aux + 1);
-    for (int i = posicao; i < posicao + aux; i++)
+    for (int i = 0; i < LINHAS; i++)
     {
-        if (matriz[linha, i] != 0)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            return true;
+            matriz[i, j] = "~";
         }
     }
-
-    for (int i = posicao; i < posicao + aux; i++)
-    {
-        matriz[linha, i] = 1;
-    }
-    return false;
 }
-bool PercorreColuna(int[,] matriz, int coluna, int aux)
+void InicializarCampoFakeUsuario(string[,] matrizString, int[,] matrizInt)
 {
-    int posicao = Random.Shared.Next(0, 8 - aux + 1);
-    for (int i = posicao; i < posicao + aux; i++)
+    for (int i = 0; i < LINHAS; i++)
     {
-        if (matriz[i, coluna] != 0)
+        for (int j = 0; j < COLUNAS; j++)
         {
-            return true;
+            matrizString[i, j] = matrizInt[i, j].ToString();
         }
     }
-    for (int i = posicao; i < posicao + aux; i++)
-    {
-        matriz[i, coluna] = 1;
-    }
-    return false;
 }
 bool Resposta()
 {
@@ -222,16 +136,6 @@ bool Resposta()
         return true;
     }
     return false;
-}
-void InicializarCampoReal(int[,] matriz)
-{
-    for (int i = 0; i < LINHAS; i++)
-    {
-        for (int j = 0; j < COLUNAS; j++)
-        {
-            matriz[i, j] = 0;
-        }
-    }
 }
 void GerarNaviosManualmente(int[,] matrizRealUsuario, string[,] matrizFakeUsuario, string[,] matrizFakeInimiga)
 {
@@ -325,62 +229,165 @@ void GerarNaviosManualmente(int[,] matrizRealUsuario, string[,] matrizFakeUsuari
         InicializarCampoFakeUsuario(matrizFakeUsuario, matrizUsuario);
     }
 }
-void InicializarCampoFakeInimigo(string[,] matriz)
+void GerarNaviosAleatoriamente(int[,] matriz)
 {
-    for (int i = 0; i < LINHAS; i++)
+    for (int i = 1; i <= 4; i++)
     {
-        for (int j = 0; j < COLUNAS; j++)
+        int linha = Random.Shared.Next(0, 8);
+        int coluna = Random.Shared.Next(0, 8);
+        int decisao = Random.Shared.Next(0, 2);
+
+        switch (decisao)
         {
-            matriz[i, j] = "~";
+            case 0:
+                while (PercorreLinha(matriz, linha, i))
+                {
+                    linha = Random.Shared.Next(0, 8);
+                }
+                break;
+            case 1:
+                while (PercorreColuna(matriz, coluna, i))
+                {
+                    coluna = Random.Shared.Next(0, 8);
+                }
+                break;
         }
     }
 }
-void InicializarCampoFakeUsuario(string[,] matrizString, int[,] matrizInt)
+bool PreencherHorizontal(int[,] matriz, int linha, int coluna, int aux)
 {
-    for (int i = 0; i < LINHAS; i++)
+    if ((coluna + aux) - 1 > 7)
     {
-        for (int j = 0; j < COLUNAS; j++)
+        Console.WriteLine("Peça grande demais para o tabuleiro! informe novas coodernadas: ");
+        return true;
+    }
+    for (int i = coluna; i < coluna + aux; i++)
+    {
+        if (matriz[linha, i] != 0)
         {
-            matrizString[i, j] = matrizInt[i, j].ToString();
+            Console.WriteLine("Ja existe uma peça nessa posição!");
+            return true;
         }
+    }
+
+    for (int i = coluna; i < coluna + aux; i++)
+    {
+        matriz[linha, i] = 1;
+    }
+    return false;
+}
+bool PreencherVertical(int[,] matriz, int linha, int coluna, int aux)
+{
+    if ((linha + aux) - 1 > 7)
+    {
+        Console.WriteLine("Peça grande demais para o tabuleiro! informe novas coodernadas: ");
+        return true;
+    }
+    for (int i = linha; i < linha + aux; i++)
+    {
+        if (matriz[i, coluna] != 0)
+        {
+            Console.WriteLine("Ja existe uma peça nessa posição!");
+            return true;
+        }
+    }
+
+    for (int i = linha; i < linha + aux; i++)
+    {
+        matriz[i, coluna] = 1;
+    }
+    return false;
+}
+void AtaqueInimigo(int[,] matriz, string[,] matrizFake)
+{
+    int linha = Random.Shared.Next(0, 8);
+    int coluna = Random.Shared.Next(0, 8);
+    while (PosicaoJaFoiAtacada(matriz, linha, coluna))
+    {
+        linha = Random.Shared.Next(0, 8);
+        coluna = Random.Shared.Next(0, 8);
+    }
+
+    if (Acertou(matriz, linha, coluna))
+    {
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("O inimigo te acertou!");
+        Console.ResetColor();
+        MostraHit(matriz, matrizFake, linha, coluna, false);
+    }
+    else
+    {
+        Console.WriteLine("O inimigo não te acertou!");
+        MostraHit(matriz, matrizFake, linha, coluna, false);
     }
 }
-void ImprimirJogo(string[,] matrizJogador, string[,] matrizInimiga)
+int InformarAtaqueLinha(int linha)
 {
-    Console.WriteLine("                 BATALHA NAVAL");
-    Console.WriteLine("==============================================");
-    Console.Write("  ");
-    for (int i = 0; i < LINHAS; i++)
+    Console.WriteLine("Informe linha que deseja atacar(0-7): ");
+    linha = int.Parse(Console.ReadLine()!);
+
+    while (linha > 7 || linha < 0)
     {
-        Console.Write(i + " ");
+        Console.WriteLine("Valor da linha está invalido! Informe novamente (0-7): ");
+        linha = int.Parse(Console.ReadLine()!);
     }
-    Console.Write("\t\t");
-    Console.Write("  ");
-    for (int i = 0; i < LINHAS; i++)
+    return linha;
+}
+int InformarAtaqueColuna(int coluna)
+{
+    Console.WriteLine("Informe coluna que deseja atacar(0-7): ");
+    coluna = int.Parse(Console.ReadLine()!);
+
+    while (coluna > 7 || coluna < 0)
     {
-        Console.Write(i + " ");
+        Console.WriteLine("Valor da coluna está invalido! Informe novamente (0-7): ");
+        coluna = int.Parse(Console.ReadLine()!);
     }
-    Console.WriteLine();
-    for (int i = 0; i < LINHAS; i++)
+    return coluna;
+}
+bool PosicaoJaFoiAtacada(int[,] matriz, int linha, int coluna)
+{
+    if (matriz[linha, coluna] == 2)
     {
-        Console.Write(i + " ");
-        for (int j = 0; j < COLUNAS; j++)
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool PercorreLinha(int[,] matriz, int linha, int aux)
+{
+    int posicao = Random.Shared.Next(0, 8 - aux + 1);
+    for (int i = posicao; i < posicao + aux; i++)
+    {
+        if (matriz[linha, i] != 0)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(matrizJogador[i, j] + " ");
+            return true;
         }
-        Console.Write("\t\t");
-        Console.ResetColor();
-        Console.Write(i + " ");
-        for (int j = 0; j < COLUNAS; j++)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(matrizInimiga[i, j] + " ");
-        }
-        Console.ResetColor();
-        Console.WriteLine();
     }
-    Console.WriteLine();
+
+    for (int i = posicao; i < posicao + aux; i++)
+    {
+        matriz[linha, i] = 1;
+    }
+    return false;
+}
+bool PercorreColuna(int[,] matriz, int coluna, int aux)
+{
+    int posicao = Random.Shared.Next(0, 8 - aux + 1);
+    for (int i = posicao; i < posicao + aux; i++)
+    {
+        if (matriz[i, coluna] != 0)
+        {
+            return true;
+        }
+    }
+    for (int i = posicao; i < posicao + aux; i++)
+    {
+        matriz[i, coluna] = 1;
+    }
+    return false;
 }
 bool Acertou(int[,] matriz, int linha, int coluna)
 {
@@ -426,47 +433,40 @@ bool ExisteNavios(int[,] matriz)
     }
     return false;
 }
-bool PreencherHorizontal(int[,] matriz, int linha, int coluna, int aux)
+void ImprimirJogo(string[,] matrizJogador, string[,] matrizInimiga)
 {
-    if ((coluna + aux) - 1 > 7)
+    Console.WriteLine("                 BATALHA NAVAL");
+    Console.WriteLine("==============================================");
+    Console.Write("  ");
+    for (int i = 0; i < LINHAS; i++)
     {
-        Console.WriteLine("Peça grande demais para o tabuleiro! informe novas coodernadas: ");
-        return true;
+        Console.Write(i + " ");
     }
-    for (int i = coluna; i < coluna + aux; i++)
+    Console.Write("\t\t");
+    Console.Write("  ");
+    for (int i = 0; i < LINHAS; i++)
     {
-        if (matriz[linha, i] != 0)
+        Console.Write(i + " ");
+    }
+    Console.WriteLine();
+    for (int i = 0; i < LINHAS; i++)
+    {
+        Console.Write(i + " ");
+        for (int j = 0; j < COLUNAS; j++)
         {
-            Console.WriteLine("Ja existe uma peça nessa posição!");
-            return true;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(matrizJogador[i, j] + " ");
         }
-    }
-
-    for (int i = coluna; i < coluna + aux; i++)
-    {
-        matriz[linha, i] = 1;
-    }
-    return false;
-}
-bool PreencherVertical(int[,] matriz, int linha, int coluna, int aux)
-{
-    if ((linha + aux) - 1 > 7)
-    {
-        Console.WriteLine("Peça grande demais para o tabuleiro! informe novas coodernadas: ");
-        return true;
-    }
-    for (int i = linha; i < linha + aux; i++)
-    {
-        if (matriz[i, coluna] != 0)
+        Console.Write("\t\t");
+        Console.ResetColor();
+        Console.Write(i + " ");
+        for (int j = 0; j < COLUNAS; j++)
         {
-            Console.WriteLine("Ja existe uma peça nessa posição!");
-            return true;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(matrizInimiga[i, j] + " ");
         }
+        Console.ResetColor();
+        Console.WriteLine();
     }
-
-    for (int i = linha; i < linha + aux; i++)
-    {
-        matriz[i, coluna] = 1;
-    }
-    return false;
+    Console.WriteLine();
 }
