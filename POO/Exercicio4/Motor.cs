@@ -2,9 +2,9 @@
 {
     public string Combustivel;
     public int Cilindrada;
-    public double Potencia;
+    public int Potencia;
 
-    public Motor(string Combustivel, int Cilindrada, double Potencia)
+    public Motor(string Combustivel, int Cilindrada, int Potencia)
     {
         this.Combustivel = Combustivel;
         this.Cilindrada = Cilindrada;
@@ -31,12 +31,12 @@
         return Cilindrada;
     }
 
-    public void setPotencia(double Potencia)
+    public void setPotencia(int Potencia)
     {
         this.Potencia= Potencia;
     }
 
-    public double getPotenca()
+    public int getPotenca()
     {
         return Potencia;
     }

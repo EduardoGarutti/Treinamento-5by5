@@ -50,10 +50,11 @@ Carro CriarCarro(int i)
     cilindrada = ValidarInt(cilindrada);
 
     Console.WriteLine($"Informe potencia do motor {i+1}: ");
-    double potencia = double.Parse(Console.ReadLine());
-    potencia = ValidarDouble(potencia);
+    int potencia = int.Parse(Console.ReadLine());
+    potencia = ValidarInt(potencia);
 
-    Carro c = new Carro(fabricante, modelo, anoFabricante, anoModelo, valorVenda, tipoCombustivel, cilindrada, potencia);
+    Carro c = new Carro(fabricante, modelo, anoFabricante, anoModelo, valorVenda, 
+        tipoCombustivel, cilindrada, potencia);
 
     return c;
 }
@@ -82,6 +83,6 @@ void ImprimirCarros(Carro[] c)
     for (int i = 0; i < c.Length; i++)
     {
         Console.WriteLine(c[i]);
-        Console.WriteLine("IPVA: R$" + c[i].IPVA().ToString("F2"));
+        Console.WriteLine();
     }
 }

@@ -1,6 +1,6 @@
 ﻿public class Carro
 {
-    Motor motor;
+    public Motor motor;
     public string Fabricante, Modelo;
     public int AnoFabricacao, AnoModelo;
     public double ValorVenda;
@@ -8,7 +8,7 @@
     const double ALIQUOTA = 0.04;
 
     public Carro(string Fabricante, string Modelo, int AnoFabricacao, int AnoModelo, double ValorVenda,
-        string Combustivel, int Cilindrada, double Potencia)
+        string Combustivel, int Cilindrada, int Potencia)
     {
         motor = new Motor(Combustivel, Cilindrada, Potencia);
         this.Fabricante = Fabricante;
@@ -90,7 +90,7 @@
     public override string ToString()
     {
         return "Fabricante: " + Fabricante + "\nModelo: " + Modelo + "\nAno Fabricação: " + AnoFabricacao +
-            "\nAno Modelo: " + AnoModelo + "\nValor de venda: " + ValorVenda + "\n"+motor;
+            "\nAno Modelo: " + AnoModelo + "\nValor de venda: " + ValorVenda + "\n"+ "IPVA: R$" + IPVA().ToString("F2") + motor;
     }
 }
 
