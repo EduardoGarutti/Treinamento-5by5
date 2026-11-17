@@ -1,0 +1,20 @@
+1- crie uma classe de conta bancaria abstrata com as seguintes propriedades:
+Numero da conta 
+Saldo da conta
+os metodos da conta bancaria são os seguites:
+Depositar()
+Sacar()
+Transferir()
+Pagar()
+
+Existem 3 tipos de conta: 
+Conta Corrente 
+Conta poupança  
+Conta salario. 
+
+A conta corrente (cc) possui a propriedade "Limite" que é sempre definida automaticamente pelo triplo do saldo. 
+Caso o saldo esteja negativo, o limite é zerado
+A conta poupança, Todo o saque desconta 5% de taxa.
+A conta salario não possui limite.
+
+Faça um programa que gerencie 3 contas definidas pelo usuario.
