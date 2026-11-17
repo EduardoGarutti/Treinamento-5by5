@@ -4,8 +4,10 @@
 //Crie um construtor que receba esses 3 valores. 
 //Crie a função get para cada uma das propriedades
 //Reescreva a função ToString para exibir os dados dos livros
+Console.WriteLine("Quantos livros voce deseja informar?");
+int qntLivros = int.Parse(Console.ReadLine());
+Livro[] livro = new Livro[qntLivros];
 
-Livro[] livro = new Livro[4];
 Popularlivros();
 ImprimirLivros(livro);
 Livro CadastrarLivro()
@@ -22,6 +24,7 @@ Livro CadastrarLivro()
     while (nmrDePaginas < 0)
     {
         Console.WriteLine("O numero de paginas do livro não pode ser negativo!");
+        nmrDePaginas = int.Parse(Console.ReadLine());
     }
 
     return new Livro(titulo, autor, nmrDePaginas);    
