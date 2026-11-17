@@ -3,11 +3,11 @@
     Motor motor;
     public string Fabricante, Modelo;
     public int AnoFabricacao, AnoModelo;
-    public float ValorVenda;
+    public double ValorVenda;
 
     const double ALIQUOTA = 0.04;
 
-    public Carro(string Fabricante, string Modelo, int AnoFabricacao, int AnoModelo, float ValorVenda,
+    public Carro(string Fabricante, string Modelo, int AnoFabricacao, int AnoModelo, double ValorVenda,
         string Combustivel, int Cilindrada, double Potencia)
     {
         motor = new Motor(Combustivel, Cilindrada, Potencia);
@@ -74,7 +74,7 @@
         this.ValorVenda = ValorVenda;
     }
 
-    public float getValorVenda()
+    public double getValorVenda()
     {
         return this.ValorVenda;
     }

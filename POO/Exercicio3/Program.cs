@@ -21,13 +21,22 @@ Livro CadastrarLivro()
     Console.WriteLine("Informe Numero de paginas do livro: ");
     int nmrDePaginas = int.Parse(Console.ReadLine());
 
-    while (nmrDePaginas < 0)
+    while (ValidarNumeroDePaginas(nmrDePaginas))
     {
-        Console.WriteLine("O numero de paginas do livro não pode ser negativo!");
+        Console.WriteLine("O numero de paginas do livro não pode ser 0 ou negativo!");
         nmrDePaginas = int.Parse(Console.ReadLine());
     }
 
     return new Livro(titulo, autor, nmrDePaginas);    
+}
+
+bool ValidarNumeroDePaginas(int numeroDePaginas)
+{
+    if (numeroDePaginas <= 0)
+    {
+        return true;
+    } 
+    return false;
 }
 
 void Popularlivros()

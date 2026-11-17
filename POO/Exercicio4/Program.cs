@@ -22,7 +22,7 @@ Carro CriarCarro(int i)
 {
     string fabricante, modelo;
     int anoModelo, anoFabricante;
-    float valorVenda;
+    double valorVenda;
 
     Console.WriteLine($"Informe o Fabricante do carro {i + 1}: ");
     fabricante = Console.ReadLine();
@@ -32,25 +32,50 @@ Carro CriarCarro(int i)
 
     Console.WriteLine($"Informe o Ano do Fabricante do carro {i + 1}: ");
     anoFabricante = int.Parse(Console.ReadLine());
+    anoFabricante = ValidarInt(anoFabricante);
 
     Console.WriteLine($"Informe o Ano do Modelo do carro {i + 1}: ");
     anoModelo = int.Parse(Console.ReadLine());
+    anoModelo = ValidarInt(anoModelo);
 
     Console.WriteLine($"Informe o Valor de venda do carro {i + 1}: ");
-    valorVenda = float.Parse(Console.ReadLine());
+    valorVenda = double.Parse(Console.ReadLine());
+    valorVenda = ValidarDouble(valorVenda);
 
     Console.WriteLine($"Informe tipo de Combustivel do veiculo {i+1}: ");
     string tipoCombustivel = Console.ReadLine();
 
     Console.WriteLine($"Informe cilindrada do motor {i+1}: ");
     int cilindrada = int.Parse(Console.ReadLine());
+    cilindrada = ValidarInt(cilindrada);
 
     Console.WriteLine($"Informe potencia do motor {i+1}: ");
     double potencia = double.Parse(Console.ReadLine());
+    potencia = ValidarDouble(potencia);
 
     Carro c = new Carro(fabricante, modelo, anoFabricante, anoModelo, valorVenda, tipoCombustivel, cilindrada, potencia);
 
     return c;
+}
+
+int ValidarInt(int a)
+{
+    while (a <= 0)
+    {
+        Console.WriteLine("O valor informado não pode ser menor ou igual a 0!");
+        a = int.Parse(Console.ReadLine());
+    }
+    return a;
+}
+
+double ValidarDouble(double a)
+{
+    while (a <= 0)
+    {
+        Console.WriteLine("O valor informado não pode ser menor ou igual a 0!");
+        a = double.Parse(Console.ReadLine());
+    }
+    return a;
 }
 void ImprimirCarros(Carro[] c)
 {
