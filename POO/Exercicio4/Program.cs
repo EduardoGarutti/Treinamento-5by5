@@ -2,7 +2,7 @@
 //amplie suas funcionalidades adicionando o cálculo do IPVA e uma nova classe
 //chamada Motor que deverá possuir os seguintes atributos:
 //-Combustivel: do tipo string, responsável por identificar o tipo de
-//  combustível utilizado pelo motor.
+// combustível utilizado pelo motor.
 //- Cilindrada: responsável por armazenar a cilindrada do motor.
 //- Potencia: 
  
@@ -58,7 +58,6 @@ Carro CriarCarro(int i)
 
     return c;
 }
-
 int ValidarInt(int a)
 {
     while (a <= 0)
@@ -68,7 +67,6 @@ int ValidarInt(int a)
     }
     return a;
 }
-
 double ValidarDouble(double a)
 {
     while (a <= 0)
