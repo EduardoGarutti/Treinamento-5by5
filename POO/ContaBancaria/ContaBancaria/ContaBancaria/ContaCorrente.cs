@@ -43,6 +43,13 @@ public class ContaCorrente : Conta
         return false;  
     }
 
+    public override bool Transferir(Conta c, double valor)
+    {
+        if (Saldo < 1)
+            return false;
+        return base.Transferir(c, valor);
+    }
+
     public override string ToString()
     {
         return base.ToString() + "\nLimite: "+ Limite;

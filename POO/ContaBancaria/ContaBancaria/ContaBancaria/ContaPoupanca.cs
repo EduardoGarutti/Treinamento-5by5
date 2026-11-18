@@ -15,11 +15,7 @@ public class ContaPoupanca : Conta
 
     public override bool Sacar(double valor)
     {
-        if (valor < 0 || valor > Saldo)
-            return false;
-        valor = valor + (valor * taxa);
-        Saldo -= valor;
-        return false;
+        return base.Sacar(valor*taxa);
     }
     public override bool Pagar(double valorBoleto)
     {
