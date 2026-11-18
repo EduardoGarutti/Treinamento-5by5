@@ -50,10 +50,7 @@ public abstract class Conta
 
     public virtual bool Pagar(double valorBoleto)
     {
-        if (valorBoleto < 0 || valorBoleto > Saldo)
-            return false;
-        Saldo -= valorBoleto;
-        return true;
+        return Sacar(valorBoleto);
     }
 
     public override string ToString()

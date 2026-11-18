@@ -107,7 +107,7 @@ void ManipularConta(int aux)
     while (sair)
     {
         Console.WriteLine("======================================");
-        Console.WriteLine("Conta: " + aux);
+        Console.WriteLine("Conta\n" + conta[aux]);
         Console.WriteLine("[1] - Depositar");
         Console.WriteLine("[2] - Sacar");
         Console.WriteLine("[3] - Transferir saldo para outra conta");
@@ -127,6 +127,7 @@ void ManipularConta(int aux)
                     Console.WriteLine("O valor do deposito nao pode ser negativo!");
                     valorDeposito = double.Parse(Console.ReadLine());
                 }
+                Console.WriteLine("Deposito realizado com sucesso!");
                 break;
             case 2:
                 Console.WriteLine("Informe valor do saque: ");
@@ -137,6 +138,7 @@ void ManipularConta(int aux)
                     Console.WriteLine("Valor de saque invalido! ");
                     valorSaque = double.Parse(Console.ReadLine());
                 }
+                Console.WriteLine("Saque realizado com sucesso! ");
                 break;
             case 3:
                 ImprimirContas();
@@ -181,7 +183,7 @@ void ManipularConta(int aux)
         }
     }
 }
-Conta ProcurarConta(int aux)
+Conta? ProcurarConta(int aux)
 {
     for(int i = 0; i < qntDeContas; i++)
     {

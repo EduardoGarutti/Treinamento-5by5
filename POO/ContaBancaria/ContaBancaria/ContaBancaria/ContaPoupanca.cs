@@ -21,4 +21,8 @@ public class ContaPoupanca : Conta
         Saldo -= valor;
         return false;
     }
+    public override bool Pagar(double valorBoleto)
+    {
+        return base.Sacar(valorBoleto);
+    }
 }

@@ -32,9 +32,9 @@ public class ContaCorrente : Conta
 
     public override bool Sacar(double valor)
     {
-        if (valor < 0)
+        if (valor < 0 || Saldo<0)
             return false;
-        if(valor > Saldo && valor <= Limite+Saldo)
+        if(valor >= Saldo && valor <= Limite+Saldo)
         {
             this.Saldo -= valor;
             setLimite(this.Saldo);
