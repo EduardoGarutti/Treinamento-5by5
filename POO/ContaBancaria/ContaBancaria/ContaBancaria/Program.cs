@@ -18,7 +18,6 @@
 //A conta salario não possui limite.
 
 //Faça um programa que gerencie 3 contas definidas pelo usuario.
-using System.ComponentModel;
 
 const int qntDeContas = 3;
 Conta[] conta = new Conta[qntDeContas];
@@ -123,56 +122,54 @@ void ManipularConta(int aux)
                 Console.WriteLine("Informe valor do deposito: ");
                 double valorDeposito = double.Parse(Console.ReadLine());
 
-                while (!ValidarDeposito(valorDeposito))
+                while (!conta[aux].Depositar(valorDeposito))
                 {
                     Console.WriteLine("O valor do deposito nao pode ser negativo!");
                     valorDeposito = double.Parse(Console.ReadLine());
                 }
-                conta[aux].Depositar(valorDeposito);
                 break;
             case 2:
                 Console.WriteLine("Informe valor do saque: ");
                 double valorSaque = double.Parse(Console.ReadLine());
 
-                while (!ValidarSaque(valorSaque, conta[aux]))
+                while (!conta[aux].Sacar(valorSaque))
                 {
                     Console.WriteLine("Valor de saque invalido! ");
                     valorSaque = double.Parse(Console.ReadLine());
                 }
-                conta[aux].Sacar(valorSaque);
                 break;
             case 3:
                 ImprimirContas();
-                Console.WriteLine("Informe o indice da conta que deseja efetuar a transferencia: ");
-                int indiceDestinatario = int.Parse(Console.ReadLine());
+                Console.WriteLine("Informe o Numero Da Conta da conta que deseja efetuar a transferencia: ");
+                int numeroDaConta = int.Parse(Console.ReadLine());
 
-                while (!ValidaIndice(indiceDestinatario))
+                Conta destinatario = ProcurarConta(numeroDaConta);
+                if(destinatario == null)
                 {
-                    Console.WriteLine("Indice invalido!");
-                    indiceDestinatario = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Numero da conta Invalido!");
+                    break;
                 }
 
                 Console.WriteLine("Informe o valor a ser depositado: ");
                 double valorTransferencia = double.Parse(Console.ReadLine());
 
-                if (!ValidarTransferencia(conta[aux], valorTransferencia, conta[indiceDestinatario]))
+                if (!ValidarTransferencia(conta[aux], valorTransferencia))
                 {
                     Console.WriteLine("Saldo insuficiente! transação nao realizada");
                     break;
                 }
-                conta[aux].Transferir(conta[indiceDestinatario], valorTransferencia);
+                conta[aux].Transferir(destinatario, valorTransferencia);
                 Console.WriteLine("Transação realizada com sucesso!");
                 break;
             case 4:
                 Console.WriteLine("Informe valor do boleto! ");
                 double boleto = double.Parse(Console.ReadLine());
 
-                if(!ValidarSaque(boleto, conta[aux]))
+                if (!conta[aux].Pagar(boleto))
                 {
-                    Console.WriteLine("Valor do boleto acima do seu saldo!");
+                    Console.WriteLine("Valor do boleto negativo ou acima do seu saldo!");
                     break;
                 }
-                conta[aux].Pagar(boleto);
                 Console.WriteLine("Boleto pago com sucesso!");
                 break;
             case 5:
@@ -184,25 +181,18 @@ void ManipularConta(int aux)
         }
     }
 }
-bool ValidarDeposito(double valor)
+Conta ProcurarConta(int aux)
 {
-    if (valor < 0)
-        return false;
-    return true;
+    for(int i = 0; i < qntDeContas; i++)
+    {
+        if (conta[i].NumeroConta == aux)
+        {
+            return conta[i];
+        }
+    }
+    return null;
 }
-bool ValidarSaque(double valor, Conta c)
-{
-    if(valor < 0 || c.Saldo < valor) 
-        return false;
-    return true;
-}
-bool ValidaIndice(int indiceDestinatario)
-{
-    if (indiceDestinatario < 0 || indiceDestinatario > qntDeContas - 1)
-        return false;
-    return true;
-}
-bool ValidarTransferencia(Conta remetente, double valor, Conta destinatario)
+bool ValidarTransferencia(Conta remetente, double valor)
 {
     if (valor <= 0 || remetente.Saldo < valor)
         return false;

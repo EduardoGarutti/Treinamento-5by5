@@ -24,25 +24,36 @@ public abstract class Conta
         Saldo = saldo;
     }
 
-    public virtual void Depositar(double valor)
+    public virtual bool Depositar(double valor)
     {
+        if (valor < 0)
+            return false;
         Saldo += valor;
+        return true;
     }
 
-    public virtual void Sacar(double valor)
+    public virtual bool Sacar(double valor)
     {
+        if (valor < 0 || valor > Saldo)
+            return false;
         Saldo -= valor;
+        return true;
     }
 
-    public virtual void Transferir(Conta c, double valor)
+    public virtual bool Transferir(Conta c, double valor)
     {
-        Sacar(valor);
+        if (!Sacar(valor))
+            return false;
         c.Saldo += valor;
+        return true;
     }
 
-    public virtual void Pagar(double valorBoleto)
+    public virtual bool Pagar(double valorBoleto)
     {
+        if (valorBoleto < 0 || valorBoleto > Saldo)
+            return false;
         Saldo -= valorBoleto;
+        return true;
     }
 
     public override string ToString()
