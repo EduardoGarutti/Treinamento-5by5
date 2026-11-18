@@ -1,4 +1,4 @@
-﻿//A conta poupança, Todo o saque desconta 5% de taxa.
+﻿//A conta salario não possui limite.
 public class ContaSalario : Conta
 {
     public ContaSalario(int numeroDaConta) : base(numeroDaConta)

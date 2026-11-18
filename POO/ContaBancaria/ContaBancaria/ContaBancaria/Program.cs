@@ -133,7 +133,7 @@ void ManipularConta(int aux)
                 Console.WriteLine("Informe valor do saque: ");
                 double valorSaque = double.Parse(Console.ReadLine());
 
-                while (!conta[aux].Sacar(valorSaque))
+                if (!conta[aux].Sacar(valorSaque))
                 {
                     Console.WriteLine("Valor de saque invalido! ");
                     valorSaque = double.Parse(Console.ReadLine());
