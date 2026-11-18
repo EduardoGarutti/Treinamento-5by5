@@ -2,7 +2,7 @@
 //Caso o saldo esteja negativo, o limite é zerado
 public class ContaCorrente : Conta
 {
-    public double Limite { get; set; }
+    public double Limite;
 
     public ContaCorrente (int numeroConta, double saldo) : base(numeroConta, saldo)
     {
