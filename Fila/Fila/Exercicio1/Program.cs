@@ -38,8 +38,8 @@ void menu()
                 AdicionarPaciente(normal, false);
                 break;
             case 3:
-                AtenderPaciente(prioritaria);
                 contador++;
+                AtenderPaciente(prioritaria);
                 if(contador == 2)
                 {
                     Console.WriteLine("Fila prioritária atendida duas vezes!\n" +
@@ -88,6 +88,7 @@ void AtenderPaciente(Fila f)
     else
     {
         Console.WriteLine("Fila vazia!");
+        contador = 0;
     }
 }
 void ImprimirTodasAsSenhas(Fila p, Fila n)
