@@ -1,0 +1,8 @@
+No hospital "SóFaltaVoce", você foi contratado para gerenciar a ordem de atendimento do pronto-socorro.
+Essa ordem segue a seguinte regra:
+- Para cada dois atendimentos da fila prioritária, um atendimento da fila normal é executado.
+
+Faça um programa que gerencie essa fila usando senhas alfanumericas, exemplo:
+A fila prioritaria começa com P.
+A fila normal começa com N
+O numero que vem depois? Random.Shared.Next();
