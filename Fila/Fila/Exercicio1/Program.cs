@@ -101,5 +101,5 @@ void ImprimirTodasAsSenhas(Fila p, Fila n)
 }
 string GerarSenha()
 {
-    return Random.Shared.Next(0, 10).ToString()+Random.Shared.Next(0, 10).ToString();
+    return Random.Shared.Next(10, 100).ToString();
 }
