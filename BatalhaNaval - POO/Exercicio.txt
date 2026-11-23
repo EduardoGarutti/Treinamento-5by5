@@ -1,0 +1,6 @@
+Refaça o batalha naval utilizando orientação a objetos
+
+- tratamento de erros
+- Grupo de 3 Pessoas
+- Apenas 1 manda o link no github
+- Eu, JP e Rafael Cruz
